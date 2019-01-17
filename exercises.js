@@ -9,6 +9,9 @@ Write a for-loop that will iterate through 20 numbers (starting at 1 and ending 
 "Now serving 20."
 */
 
+for (i = 1; i < 21; i ++) {
+    console.log('Now serving ' + i + ".");
+}
 
 /* 2) Pop Charts
 Write a for-loop that will iterate through the topFive array below and console.log the following message:
@@ -21,6 +24,9 @@ This week's chart buster is: '24K Magic.'
 
 var topFive = ["Closer", "Starboy", "I Feel It Coming", "Let Me Love You", "24K Magic"];
 
+for (i = 0; i < topFive.length; i++) {
+   console.log('This weeks chart buster is: ' + topFive[i]);
+}
 
 /* 3) Dead Presidents
 Declare a variable named `presidents` and assign it to an array containing the following Presidents: Washington, Adams, Jefferson, Madison and Monroe.
@@ -32,6 +38,7 @@ The value at 2 is "Jefferson.
 The value at 3 is "Madison.
 The value at 4 is Monroe.
 
+
 Next, console.log the length of the array.
 
 3-A) Create a function named leaders which will take in a parameter: `person`.
@@ -41,6 +48,19 @@ This function will iterate through the person parameter and console.log the foll
 
 "President person was a great leader."
 */
+var presidents = ['Washington', 'Adams', 'Jefferson', 'Madison', 'Monroe'];
+
+for (i = 0; i < presidents.length; i++) {
+   console.log(presidents[i]);
+}
+console.log(presidents.length);
+
+function leaders(person) {
+   for (i=0; i<presidents.length; i++) {
+      console.log('President ' + person[i] + ' was a great leader');
+   }
+}
+console.log(leaders(presidents));
 
 
 /* 4) Line Number
@@ -48,6 +68,11 @@ Declare a variable named `stringOfNumbers` and assign its value to an empty stri
 
 Write a for-loop that concatenates a Number value into that string on each iteration, starting at `10` and continuing up to and including `20`. Console.log your result. It should read "1011121314151617181920"*/
 
+var stringOfNumbers = ' ';
+for (i=10; i<21; i++) {
+   stringOfNumbers += i;
+}
+console.log(stringOfNumbers);
 
 /* 5) Even Stevens
 Declare a variable named `evenNumArr` and assign its value to an empty array. 
@@ -56,14 +81,28 @@ Write a for-loop that will push even numbers to the `evenNumArr` array. We want 
 Console.log your results.
 */
 
-
+var evenNumArr = [];
+for (i=0; i<101; i++) {
+   if (i%2 === 0) {
+      evenNumArr.push(i);
+   }
+}
+console.log(evenNumArr);
 /* 6) Up the Odds
 Declare a variable named `oddSum` and assign it to the Number value 0.
 
 Write a for-loop that will sum up odd numbers to the `oddSum` variable. We want to add 50 odd numbers starting from 1.
 Console.log your results.
 */
-  
+
+var oddSum = 0;
+
+for (i=1; i<101; i++) {
+   if(i%2 !==0) {
+      oddSum += i;
+   }
+}
+console.log(oddSum);
 
 /* 7) Oops There It is
 Declare a variable named `oopsArray` and assign its to the following array: `[ 'turn' , , 'down' , , 'for' , , 'what' ]`.
@@ -72,6 +111,14 @@ Note that every odd index value in `oopsArray` is currently `undefined`. Using a
 [ 'turn' , 'nope' , 'down' , 'nope' , 'for' , 'nope' , 'what' ]
 */
 
+var oopsArray = ['turn', ,'down', ,'for', ,'what'];
+for (i=0; i<oopsArray.length; i++) {
+   if(i%2 ===1 ) {
+      
+      oopsArray[i] = 'Nope';
+   }
+}
+console.log(oopsArray);
 
 /* 8) Is It There Oops
 Using a for-loop, iterate through the Array stored at `oopsArray` backwards. Console.log your result. It should look like this:
@@ -85,6 +132,11 @@ nope
 turn
 */
 
+/*for (i=0; i<oopsArray.length; i--)
+   {
+      oopsArray.reverse(i);
+      console.log(oopsArray.toString(i));
+   }
 
 /* 9) Siesta Time
 Declare a variable named `napSchedule` and assign its value to the following array: `[false, false, true, false, true, true]`
@@ -96,6 +148,19 @@ Next, write a function named `nap`. This function takes in a single parameter: `
 Inside of this function write a for-loop that will iterate through the `napSchedule` array and console.log the message: `ZzZzZzZz` if the schedule is `true`, otherwise the it will console.log the message: `Gotta get coding!` if the schedule is `false`.
 */
 
+var napSchedule = [false, false, true, false, true, true];
+
+function nap(schedule) {
+   for (i=0; i<=napSchedule.length; i+=1) {
+      if(schedule[i]===true){
+         console.log('zzzzzz');
+      }else {
+         console.log('Gotta get Coding');
+      }
+   }
+}
+var napTime = nap(napSchedule);
+console.log(napTime);
 
 
 /* 10) Copy Pasta
@@ -110,7 +175,18 @@ Write a function named `copyArray` which takes two arguments: `originArray` and 
 Inside of this function write a for-loop that will iterate through the contents of the `originArray` and pushes each element of that array into `destinationArray`. Console.log your result.
 */
 
+var valuesArray = [99, 66, 829, 1941, 8, 76];
+var copyValuesArray = [];
 
+function copyArray(originArray, destinationArray) {
+   for(i=0; i<originArray.length; i++) {
+   destinationArray.push(originArray[i]);
+   }
+   return destinationArray;
+}
+var didItWork = copyArray(valuesArray, copyValuesArray);
+console.log(didItWork);
+console.log(copyValuesArray);
 
 /*Final Boss*/
 
@@ -118,6 +194,22 @@ Inside of this function write a for-loop that will iterate through the contents 
 Declare a variable named `topQuote` and assign it to a String value of your favorite one line quote.
 Write a function that will iterate through the string value and return the longest word in that quote. Console.log your result.
 */
+
+var topQuote = "I'm a failure Michael. I can't even fake the death of a stripper";
+
+function Quotation(quote) {
+   var splitter = quote.split(' ');
+   var longestWord = 0;
+   for(i=0; i<quote.split; i++) {
+      if(splitter[i].length > longestWord) {
+         longestWord = splitter[i].length
+      }
+   }
+   return longestWord;
+}
+console.log(Quotation(topQuote));
+
+
 
 
 
